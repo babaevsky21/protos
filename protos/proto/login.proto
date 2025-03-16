@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+package login;
+
+option go_package = "chuvash.login.proto;login";
+
+service LoginService {
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+
+  rpc Login(LoginRequest) returns (LoginResponse);
+
+  rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse);
+
+  rpc ChangeEmail(ChangeEmailRequest) returns (ChangeEmailResponse);
+
+  rpc ChangeUsername(ChangeUsernameRequest) returns (ChangeUsernameResponse);
+}
+
+message RegisterRequest {
+  oneof user {
+    string username = 1;
+    string email = 2;
+  }
+  string password = 3;
+}
+
+message RegisterResponse {
+  string status = 1;
+}
+
+message LoginRequest {
+  oneof user {
+    string username = 1;
+    string email = 2;
+  }
+  string password = 3;
+}
+
+message LoginResponse {
+  string token = 1;
+}
+
+message ChangePasswordRequest {
+  string token = 1;
+  string old_password = 2;
+  string new_password = 3;
+}
+
+message ChangePasswordResponse {
+  string status = 1;
+}
+
+message ChangeEmailRequest {
+  string token = 1;
+  string old_email = 2;
+  string new_email = 3;
+}
+
+message ChangeEmailResponse {
+  string status = 1;
+}
+
+message ChangeUsernameRequest {
+  string token = 1;
+  string old_username = 2;
+  string new_username = 3;
+}
+
+message ChangeUsernameResponse {
+  string status = 1;
+}

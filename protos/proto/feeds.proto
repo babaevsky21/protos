@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package feeds;
+
+option go_package = "chuvash.feeds.proto;feeds";
+
+service FeedsService {
+  rpc CreateFeed(CreateFeedRequest) returns (CreateFeedResponse);
+
+  rpc GetFeed(GetFeedRequest) returns (GetFeedResponse);
+
+  rpc UpdateFeed(UpdateFeedRequest) returns (UpdateFeedResponse);
+
+  rpc DeleteFeed(DeleteFeedRequest) returns (DeleteFeedResponse);
+
+  rpc ListFeeds(ListFeedsRequest) returns (ListFeedsResponse);
+}
+
+message Feed {
+  string feed_id = 1;
+  string url = 2;
+  string title = 3;
+  string description = 4;
+}
+
+message CreateFeedRequest {
+  string token = 1;
+
+  Feed feed = 2;
+}
+
+message CreateFeedResponse {
+  string status = 1;
+}
+
+message GetFeedRequest {
+  string token = 1;
+  string feed_id = 2;
+}
+
+message GetFeedResponse {
+  string status = 1;
+}
+
+message UpdateFeedRequest {
+  string token = 1;
+  string feed_id = 2;
+  Feed feed = 3;
+}
+
+message UpdateFeedResponse {
+  string status = 1;
+}
+
+message DeleteFeedRequest {
+  string token = 1;
+  string feed_id = 2;
+}
+
+message DeleteFeedResponse {
+  string status = 1;
+}
+
+message ListFeedsRequest {
+  int32 user_id = 1;
+}
+
+message ListFeedsResponse {
+  repeated Feed feeds = 1;
+}
