@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package login;
 
-option go_package = "chuvash.login.proto;loginv1";
+option go_package = "chuvash.login.proto;login";
 
 service LoginService {
   rpc Register(RegisterRequest) returns (RegisterResponse);
