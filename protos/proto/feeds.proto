@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package feeds;
 
-option go_package = "chuvash.feeds.proto;feeds";
+option go_package = "chuvash.feeds.proto;feedsv1";
 
 service FeedsService {
   rpc CreateFeed(CreateFeedRequest) returns (CreateFeedResponse);

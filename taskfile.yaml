@@ -1,8 +1,11 @@
 version: '3'
 
 tasks:
-  generate:
+  generate_login:
     desc: "generate protobuf code"
     cmds:
       - protoc -I ./protos --go_out=./protos/gen/login --go-grpc_out=./protos/gen/login  --go_opt=paths=source_relative --go-grpc_opt=paths=source_relative ./protos/proto/login.proto
+  generate_feeds:
+    desc: "generate protobuf code"
+    cmds:
       - protoc -I ./protos --go_out=./protos/gen/feeds --go-grpc_out=./protos/gen/feeds  --go_opt=paths=source_relative --go-grpc_opt=paths=source_relative ./protos/proto/feeds.proto

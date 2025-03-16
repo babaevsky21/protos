@@ -4,7 +4,7 @@
 // - protoc             v5.29.3
 // source: proto/feeds.proto
 
-package feeds
+package feedsv1
 
 import (
 	context "context"

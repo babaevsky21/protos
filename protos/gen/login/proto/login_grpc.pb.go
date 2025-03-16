@@ -4,7 +4,7 @@
 // - protoc             v5.29.3
 // source: proto/login.proto
 
-package login
+package loginv1
 
 import (
 	context "context"
